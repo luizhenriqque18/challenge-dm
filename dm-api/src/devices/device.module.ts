@@ -10,4 +10,4 @@ import { DeviceService } from "./device.service";
     providers: [DeviceService],
     controllers: [DeviceController]
 })
-export class DevicesModule {}
+export class DeviceModule {}

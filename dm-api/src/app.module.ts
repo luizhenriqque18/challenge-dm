@@ -3,7 +3,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Device } from './devices/device.model';
-import { DevicesModule } from './devices/device.module';
+import { DeviceModule } from './devices/device.module';
 
 @Module({
   imports: [
@@ -15,8 +15,13 @@ import { DevicesModule } from './devices/device.module';
       password: '123456789',
       database: 'device-management',
       models: [Device],
+      define: {
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+      },  
     }),
-    DevicesModule
+    DeviceModule
   ],
   controllers: [AppController],
   providers: [AppService],
