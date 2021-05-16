@@ -1,14 +1,14 @@
-import { Column, Model, Table } from "sequelize-typescript";
+import { Column, HasMany, Model, Table } from "sequelize-typescript";
 
 
-@Table
+@Table({modelName: "device"})
 export class Device extends Model {
 
     @Column({primaryKey: true, autoIncrement: true})
     id: number;
 
     @Column
-    cor: string;
+    color: string;
 
     @Column
     partNumber: number;
