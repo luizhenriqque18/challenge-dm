@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Device } from './devices/device.model';
-import { DeviceModule } from './devices/device.module';
+import { Device } from './device/device.model';
+import { DeviceModule } from './device/device.module';
 
 @Module({
   imports: [
