@@ -20,12 +20,12 @@ export class DeviceService {
 
     async findById(id: string): Promise<Device> {
 
-        let device = this.deviceModel
+        let device = await this.deviceModel
             .findOne({
                 where: { id },
             });
 
-        if(device) {
+        if(!device) {
             throw new HttpException(`device id ${id} not found`, 404); 
         }
 
