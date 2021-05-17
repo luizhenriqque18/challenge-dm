@@ -1,0 +1,6 @@
+<div>
+    <ul *ngFor="let item of categories">
+        <li>Categoria: {{item.name}}</li>
+        <li><button (click)="onDelete(item.id)">Excluir</button></li>
+    </ul>
+</div>
