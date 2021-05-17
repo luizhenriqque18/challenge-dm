@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CategoryModule } from './pages/category/category.module';
 import { DeviceModule } from './pages/device/device.module';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DeviceModule } from './pages/device/device.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    DeviceModule
+    DeviceModule,
+    CategoryModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'pt-Br' }],
   bootstrap: [AppComponent]
