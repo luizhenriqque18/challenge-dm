@@ -26,7 +26,7 @@ export class CategoryService {
             });
 
         if(!device) {
-            throw new HttpException(`device id ${id} not found`, 404); 
+            throw new HttpException(`category id ${id} not found`, 404); 
         }
 
         return device;

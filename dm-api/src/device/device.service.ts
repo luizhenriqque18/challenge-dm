@@ -1,6 +1,7 @@
-import { HttpException, Injectable } from "@nestjs/common";
+import { HttpException, Inject, Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
 import { Category } from "src/category/category.model";
+import { CategoryService } from "src/category/category.service";
 import { Device } from "./device.model";
 import { CreateDeviceDto } from "./dtos/create-device.dto";
 
@@ -8,10 +9,15 @@ import { CreateDeviceDto } from "./dtos/create-device.dto";
 export class DeviceService {
     constructor(
         @InjectModel(Device)
-        private deviceModel: typeof Device) {}
+        private deviceModel: typeof Device,
+        private categoryService: CategoryService) {}
 
 
     async create(dto: CreateDeviceDto): Promise<Device> {
+
+        let category = await this.categoryService.findById(dto.categoryId.toString());
+        console.log(category);
+
         return this.deviceModel.create(dto);
     }
 
