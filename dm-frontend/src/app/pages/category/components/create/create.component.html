@@ -1,0 +1,11 @@
+<p>create works!</p>
+<a href="/category">Voltar</a>
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <label>
+        Nome:
+        <input type="text" formControlName="name">
+        <small *ngIf="categoryForm.controls['name'].hasError('maxlength')">Valor máximo atingindo</small>
+        <small *ngIf="!categoryForm.controls['name'].valid && categoryForm.controls['name'].touched">Campo obrigatorio</small>
+    </label>
+    <button type="submit" [disabled]="!categoryForm.valid">Cadastrar</button>
+</form>
