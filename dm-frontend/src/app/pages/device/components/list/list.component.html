@@ -1,0 +1,8 @@
+<div>
+    <ul *ngFor="let item of devices">
+        <li>Part Number: {{item.partNumber}}</li>
+        <li>Cor: {{item.color}}</li>
+        <li>Categoria: {{item.category.name}}</li>
+        <li><button (click)="onDelete(item.id)">Excluir</button></li>
+    </ul>
+</div>
