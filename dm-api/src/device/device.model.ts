@@ -13,7 +13,7 @@ export class Device extends Model {
         type: DataType.INTEGER,
         allowNull: false,
     })
-    categoryId: number
+    categoryId?: number
 
     @BelongsTo(() => Category)
     category: Category;
