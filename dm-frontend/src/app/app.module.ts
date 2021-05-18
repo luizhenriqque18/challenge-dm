@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { DeviceModule } from './pages/device/device.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     DeviceModule,
     CategoryModule
   ],
