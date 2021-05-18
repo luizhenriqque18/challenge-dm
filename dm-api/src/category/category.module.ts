@@ -3,10 +3,12 @@ import { CategoryService } from './category.service';
 import { CategoryController } from './category.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Category } from './category.model';
-
+import { getRepositoryToken } from '@nestjs/typeorm';
 @Module({
   imports: [SequelizeModule.forFeature([Category])],
-  providers: [CategoryService],
+  providers: [CategoryService, 
+    
+  ],
   controllers: [CategoryController],
   exports: [CategoryService]
 })
