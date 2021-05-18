@@ -6,16 +6,23 @@ import { Device } from './device/device.model';
 import { DeviceModule } from './device/device.module';
 import { CategoryModule } from './category/category.module';
 import { Category } from './category/category.model';
+import { ConfigModule } from '@nestjs/config';
+
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: ['.env.development.local', '.env.development']
+    }),
+    DeviceModule,
+    CategoryModule,
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
+      host: process.env.DATABASE_HOST,
       port: 3306,
-      username: 'root',
-      password: '123456789',
-      database: 'device-management',
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_DB,
       models: [Device, Category],
       define: {
         timestamps: false,
@@ -23,8 +30,6 @@ import { Category } from './category/category.model';
         underscored: true,
       },  
     }),
-    DeviceModule,
-    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService],

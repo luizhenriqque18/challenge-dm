@@ -1,7 +1,8 @@
+require('dotenv').config()
 const path = require('path');
-
+console.log(process.env.DATABASE_USER);
 module.exports = {
    'seeders-path': path.resolve('src/database', 'seeders'),
    'migrations-path': path.resolve('src/database', 'migrations'),
-   'config': path.resolve('src/database', 'config.ts'),
+   'config': path.resolve('src/database', 'config.js'),
 }
