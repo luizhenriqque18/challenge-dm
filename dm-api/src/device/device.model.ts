@@ -1,5 +1,5 @@
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
-import { Category } from "src/category/category.model";
+import { Category } from "./../category/category.model";
 
 
 @Table({modelName: "device"})

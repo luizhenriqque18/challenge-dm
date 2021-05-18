@@ -1,4 +1,4 @@
-import { Body, ClassSerializerInterceptor, Controller, Delete, Get, HttpCode, Param, Post, SerializeOptions, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, Param, Post } from "@nestjs/common";
 import { Device } from "./device.model";
 import { DeviceService } from "./device.service";
 import { CreateDeviceDto } from "./dtos/create-device.dto";

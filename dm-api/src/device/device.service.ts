@@ -1,7 +1,7 @@
 import { HttpException, Inject, Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/sequelize";
-import { Category } from "src/category/category.model";
-import { CategoryService } from "src/category/category.service";
+import { Category } from "./../category/category.model";
+import { CategoryService } from "./../category/category.service";
 import { Device } from "./device.model";
 import { CreateDeviceDto } from "./dtos/create-device.dto";
 
