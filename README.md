@@ -46,6 +46,11 @@ Start containers with command:
 $ make start
 ```
 
+#### Ports: 
+- dm-api: http://localhost:3000
+- dm-frontend: http://localhost:8080
+
+
 Stop containers with command:
 
 ```

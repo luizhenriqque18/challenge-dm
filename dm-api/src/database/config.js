@@ -7,7 +7,7 @@ module.exports = {
        port: 3306,
        username: process.env.DATABASE_USER || 'root',
        password: process.env.DATABASE_PASSWORD || '123456789',
-       database: process.env.DATABASE_DB || 'dm',
+       database: process.env.DATABASE_DB || 'device_management',
     },
     test: {
        dialect: 'sgbd',
