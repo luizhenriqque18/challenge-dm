@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/model/category.model';
 import { Device } from 'src/app/model/device.model';
 import { CategoryService } from 'src/app/pages/category/services/category.service';
@@ -16,7 +17,8 @@ export class CreateComponent implements OnInit {
   constructor(
     private service: DeviceService,
     private serviceCategory: CategoryService, 
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
   public deviceForm = this.fb.group({
       color: ['', [Validators.required, Validators.maxLength(16)]],
@@ -37,9 +39,9 @@ export class CreateComponent implements OnInit {
   onSubmit(): void {
     let dto: DeviceDto = this.deviceForm.value;
 
-    console.log(this.deviceForm);
-
     this.service.CreateUsingPost(dto).subscribe(() => {
+      this.router.navigate(['device']);
+      this.deviceForm.reset();
     })
   }
 
