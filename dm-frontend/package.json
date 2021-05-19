@@ -11,6 +11,7 @@
     "start:prod": "node server.js",
     "start:dev": "ng serve",
     "build": "ng build --configuration production",
+    "build:dev": "ng build --aot --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

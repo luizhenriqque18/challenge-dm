@@ -9,20 +9,21 @@
     "node": "v12.22.1"
   },
   "scripts": {
-    "prebuild": "rimraf dist & npm run sequelize:migrations",
+    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start ",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main.js",
+    "start:prod": "npm run sequelize:migrations && node dist/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "sequelize:migrations": "npx sequelize-cli db:migrate"
+    "db:pre-migrate": "node scripts/createDB.js",
+    "sequelize:migrations": "npm run db:pre-migrate && npx sequelize-cli db:migrate"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",

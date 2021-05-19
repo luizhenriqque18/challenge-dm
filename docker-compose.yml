@@ -2,10 +2,38 @@ version: "3.7"
 
 services:
     mysql:
-        image: mysql
-        command: --default-authentication-plugin=mysql_native_password
-        restart: always
-        environment:
-          MYSQL_ROOT_PASSWORD: 123456789
-        ports: 
-          - 3306:3306
+      container_name: mysql_prod
+      image: mysql
+      command: --default-authentication-plugin=mysql_native_password
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: 123456789
+      ports: 
+        - 3306:3306
+    prod-frontend:
+      container_name: dm-frontend_prod
+      image: dm-frontend_prod:1.0.0
+      build:
+        context: ./dm-frontend
+        dockerfile: ./Dockerfile
+      ports: 
+         - 8080:8080
+      command: npm run start:prod
+    prod-backend:
+      container_name: dm-api_prod
+      image: dm-api_prod:1.0.0
+      build:
+          context: ./dm-api
+          target: production
+          dockerfile: ./Dockerfile
+      environment:
+          - DATABASE_HOST=mysql
+          - DATABASE_PORT=3306
+          - DATABASE_USER=root
+          - DATABASE_PASSWORD=123456789
+          - DATABASE_DB=device_management
+      command: npm run start:prod
+      ports:
+          - 3000:3000
+      depends_on: 
+        - mysql
